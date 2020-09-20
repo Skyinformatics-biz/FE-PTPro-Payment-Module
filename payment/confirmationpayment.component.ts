@@ -9,8 +9,8 @@ import { Location } from '@angular/common';
 })
 export class ConfirmationpaymentComponent implements OnInit {
 
-  ServiceCart = [];
-
+  ServiceCart:ServiceCartInterface;
+  
 
 
   constructor(private _location: Location, private renderer: Renderer2) {
@@ -48,7 +48,12 @@ export class ConfirmationpaymentComponent implements OnInit {
     localStorage.removeItem("HealthcartService");
   }
 
+  gotoMyPage(){
+    //TODO
+  }
 
 
-
+}
+export interface ServiceCartInterface {
+  name: any;
 }
