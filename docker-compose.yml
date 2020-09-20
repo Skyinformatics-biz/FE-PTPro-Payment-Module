@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  ptpro-subscription-module:
+  fe-ptpro-subscription:
     image: fe-ptpro-subscription
     build:
       context: .
@@ -10,7 +10,7 @@ services:
     hostname: 'localhost'
     restart: "no"
     tty: true
-    working_dir: /app
+    working_dir: /usr/www/app/src/modules/
     environment:
       NG_CLI_ANALYTICS: "false"
     ports:
@@ -21,20 +21,6 @@ services:
     networks:
       - app-network
       
-  nginx-server:
-    image: nginx:alpine
-    container_name: nginx-server
-    restart: "no"
-    tty: true
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-    depends_on:
-      - 'angular-ui'
-    networks:
-      - app-network
 #Docker networks
 networks:
   app-network:
